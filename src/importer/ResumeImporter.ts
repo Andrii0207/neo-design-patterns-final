@@ -16,6 +16,16 @@ export class ResumeImporter extends AbstractImporter<ResumeModel> {
    */
   protected validate(): void {
     // TODO: Додайте перевірки на наявність обов'язкових полів та їх структуру. Неприпустимий формат JSON
+  const data = this.raw as ResumeModel;
+    if (
+      !data.header ||
+      !data.summary ||
+      !data.experience ||
+      !data.education ||
+      !data.skills
+    ) {
+      throw new Error("Invalid resume format. Fill in all required fields.");
+    }
   }
 
   /**
@@ -33,9 +43,17 @@ export class ResumeImporter extends AbstractImporter<ResumeModel> {
    */
   protected render(model: ResumeModel): void {
     const root = document.getElementById("resume-content")!;
+    if (!root) throw new Error("Missing #resume-content element");
+
     // TODO: Створіть фабрику і використайте її для створення і рендерингу блоків
     const factory = new BlockFactory();
 
+    root.appendChild(factory.createBlock("header", model).render());
+    root.appendChild(factory.createBlock("summary", model).render());
+
     // TODO: Створіть і додайте у DOM кожен блок резюме
+    root.appendChild(factory.createBlock("experience", model).render());
+    root.appendChild(factory.createBlock("education", model).render());
+    root.appendChild(factory.createBlock("skills", model).render());
   }
 }

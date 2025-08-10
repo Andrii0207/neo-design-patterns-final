@@ -39,24 +39,29 @@ export class BlockFactory {
    * TODO: Реалізуйте метод createBlock, який створює і повертає
    * відповідний блок залежно від типу, використовуючи патерн Factory Method.
    */
-  createBlock(type: BlockType, m: ResumeModel): IBlock {
+  createBlock(type: BlockType, model: ResumeModel): IBlock {
     // TODO: Реалізуйте логіку створення відповідного об'єкта IBlock
     switch (type) {
       case "header":
         // TODO: Поверніть новий HeaderBlock з відповідними даними
-        break;
+        return new HeaderBlock(model.header);
+
       case "summary":
         // TODO: Поверніть новий SummaryBlock з відповідними даними
-        break;
+        return new SummaryBlock(model.summary);
+
       case "experience":
         // TODO: Поверніть новий ExperienceBlock з відповідними даними
-        break;
+        return new ExperienceBlock(model.experience);
+
       case "education":
         // TODO: Поверніть новий EducationBlock з відповідними даними
-        break;
+         return new EducationBlock(model.education);
+
       case "skills":
         // TODO: Поверніть новий SkillsBlock з відповідними даними
-        break;
+        return new SkillsBlock(model.skills);
+        
       default:
         throw new Error(`Unknown block type: ${type}`);
     }
