@@ -28,6 +28,22 @@ export class ExperienceBlock implements IBlock {
     // TODO: Додати проєкти (ProjectBlock, HighlightDecorator) до цього div
     // TODO: Додати всі experience-item до секції
 
+    this.d.forEach((exp) => {
+      const item = document.createElement("div");
+      item.className = "experience-item";
+      item.innerHTML = `<strong>${exp.position}</strong> at <em>${exp.company}</em> (${exp.start} – ${exp.end})`;
+
+      for (const project of exp.projects) {
+        let block: IBlock = new ProjectBlock(project);
+        if (project.isRecent) {
+          block = new HighlightDecorator(block);
+        }
+        item.appendChild(block.render());
+      }
+
+      container.appendChild(item);
+    });
+
     return container;
   }
 }

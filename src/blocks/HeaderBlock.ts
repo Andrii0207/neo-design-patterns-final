@@ -21,6 +21,12 @@ export class HeaderBlock implements IBlock {
 
     // TODO: Заповнити header.innerHTML з h1 (ім'я), p (title), p (контакти: email, phone, location)
 
+    header.innerHTML = `
+      <h1>${this.d.fullName}</h1>
+      <p><em>${this.d.title}</em></p>
+      <p>${this.d.contacts.email} ${this.d.contacts.phone} ${this.d.contacts.location}</p>
+    `;
+
     return header;
   }
 }

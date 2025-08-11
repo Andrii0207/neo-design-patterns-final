@@ -22,6 +22,16 @@ export class EducationBlock implements IBlock {
     // TODO: Додайте до секції інформацію про навчальний заклад (this.d.institution),
     // отриманий ступінь (this.d.degree) та період навчання (this.d.graduation)
 
+    this.d.forEach((edu) => {
+      const item = document.createElement("div");
+      item.className = "education-item";
+      item.innerHTML = `
+        <p><strong>${edu.degree} з ${edu.field}</strong></p>
+        <p>${edu.institution}, ${edu.graduation}</p>
+      `;
+      el.appendChild(item);
+    });
+    
     return el;
   }
 }

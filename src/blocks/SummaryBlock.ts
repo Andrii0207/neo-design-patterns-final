@@ -20,6 +20,11 @@ export class SummaryBlock implements IBlock {
 
     // TODO: Додайте до секції заголовок h2 і параграф з текстом опису (this.d.text)
 
+    el.innerHTML = `
+      <h2>Summary</h2>
+      <p>${this.d.text}</p>
+    `;
+
     return el;
   }
 }
