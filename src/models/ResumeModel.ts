@@ -7,6 +7,7 @@ export interface Project {
 }
 
 export interface Experience {
+  forEach(arg0: (exp: any) => void): unknown;
   position: string;
   company: string;
   start: string;
@@ -15,6 +16,7 @@ export interface Experience {
 }
 
 export interface Education {
+  forEach(arg0: (edu: any) => void): unknown;
   degree: string;
   field: string;
   institution: string;
