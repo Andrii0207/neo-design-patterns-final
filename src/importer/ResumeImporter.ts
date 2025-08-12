@@ -27,7 +27,6 @@ export class ResumeImporter extends AbstractImporter<ResumeModel> {
       throw new Error("Invalid resume format. Fill in all required fields.");
     }
   }
-
   /**
    * Перетворює JSON-дані у внутрішню модель резюме
    *
@@ -35,7 +34,6 @@ export class ResumeImporter extends AbstractImporter<ResumeModel> {
   protected map(): ResumeModel {
     return this.raw as ResumeModel;
   }
-
   /**
    * Рендерить модель резюме у DOM
    *

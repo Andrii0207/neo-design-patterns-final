@@ -6,7 +6,7 @@ import { Education } from "../models/ResumeModel";
 import { IBlock } from "./BlockFactory";
 
 export class EducationBlock implements IBlock {
-  constructor(private d: Education) {}
+  constructor(private d: Education[]) {}
 
   /**
    * Рендеринг блоку освіти
@@ -21,7 +21,6 @@ export class EducationBlock implements IBlock {
 
     // TODO: Додайте до секції інформацію про навчальний заклад (this.d.institution),
     // отриманий ступінь (this.d.degree) та період навчання (this.d.graduation)
-
     this.d.forEach((edu) => {
       const item = document.createElement("div");
       item.className = "education-item";

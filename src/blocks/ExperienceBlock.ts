@@ -10,7 +10,7 @@ import { ProjectBlock } from "./ProjectBlock";
 import { HighlightDecorator } from "../decorators/HighlightDecorator";
 
 export class ExperienceBlock implements IBlock {
-  constructor(private d: Experience) {}
+  constructor(private d: Experience[]) {}
 
   /**
    * Рендеринг блоку досвіду роботи
@@ -27,7 +27,6 @@ export class ExperienceBlock implements IBlock {
     // TODO: Для кожного досвіду створити div.experience-item з innerHTML (позиція, компанія, період)
     // TODO: Додати проєкти (ProjectBlock, HighlightDecorator) до цього div
     // TODO: Додати всі experience-item до секції
-
     this.d.forEach((exp) => {
       const item = document.createElement("div");
       item.className = "experience-item";
@@ -40,7 +39,6 @@ export class ExperienceBlock implements IBlock {
         }
         item.appendChild(block.render());
       }
-
       container.appendChild(item);
     });
 

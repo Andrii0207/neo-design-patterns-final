@@ -21,7 +21,6 @@ export class ProjectBlock implements IBlock {
     container.className = "project-item";
 
     // TODO: Заповнити container.textContent рядком: "• {name} – {description}"
-
     container.innerHTML = `
       <p><strong>${this.d.name}</strong></p>
       <p>${this.d.description}</p>

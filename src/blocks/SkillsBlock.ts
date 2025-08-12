@@ -23,7 +23,6 @@ export class SkillsBlock implements IBlock {
     // TODO: Створіть список навичок, згрупований за категоріями
     // Використайте Object.entries(this.d) для ітерації по всіх категоріях
     // Створіть для кожної категорії елемент списку з назвою категорії та списком навичок
-
     sec.innerHTML = `
       <h2>Skills</h2>
       <ul class="skills-list">
